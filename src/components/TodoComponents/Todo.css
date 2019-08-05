@@ -1,4 +1,13 @@
 .todo-List{
     color: black;
-    font-size: 30px;
+    font-size: 25px;
+
+
 }
+
+
+.item.completed {
+    background: wheat;
+    text-decoration: line-through;
+
+  }
