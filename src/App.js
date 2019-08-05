@@ -53,14 +53,15 @@ addTodo = todoName => {
 
 clearCompleted = () => {
   this.setState({
-    todos: this.state.todos.filter(item => item.completed === false),
+    todos: this.state.todos.filter(item => !item.completed),
   });
 }
   
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div class = 'app'>
+        <h2>Welcome to Todo App!</h2>
+        <h1>To Do:</h1>
         <TodoForm addTodo = {this.addTodo}/>
         <TodoList
           clearCompleted = {this.clearCompleted}
