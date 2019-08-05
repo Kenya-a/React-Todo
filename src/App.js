@@ -2,7 +2,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
-const todos = [
+const todosData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -13,19 +13,20 @@ const todos = [
     id: 1528817084358,
     completed: false
   }
-]
+];
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos
+      todos: todosData
     };
   }
 
 
   toggleItem = id => {
-  console.log('working', id)
+  console.log('working', id);
+
    this.setState({
       todos: this.state.todos.map(item => {
        if (item.id === id) {
@@ -60,10 +61,11 @@ addTodo = todoName => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm addTodo = {this.addTodo}/>
         <TodoList
           todos = {this.state.todos}
+          toggleItem = {this.toggleItem}
         />
-        <TodoForm/>
       </div>
     );
   }

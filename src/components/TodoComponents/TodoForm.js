@@ -8,6 +8,11 @@ class TodoForm extends React.Component{
         };
     }
 
+    newSubmit = element => {
+        element.preventDefault();
+        this.props.addTodo(this.state.item)
+    }
+
     handleChange = element => {
         this.setState({
             [element.target.name]:element.target.value
@@ -16,7 +21,7 @@ class TodoForm extends React.Component{
 
     render() {
         return(
-            <form> 
+            <form onSubmit={this.newSubmit}> 
                 <input 
                 type = 'text'
                 value = {this.state.item}
